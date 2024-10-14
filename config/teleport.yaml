@@ -1,0 +1,58 @@
+version: v3
+teleport:
+  nodename: bff-demo
+  join_params:
+    token_name: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    method: token
+  proxy_server: "teleport-16-ent.asteroid.earth:443"
+  log:
+    output: stderr
+    severity: DEBUG
+    format:
+      output: text
+auth_service:
+  enabled: "no"
+ssh_service:
+  enabled: "no"
+proxy_service:
+  enabled: "no"
+app_service:
+  enabled: "yes"
+  apps:
+    - name: "frontend"
+      uri: "http://frontend:3000"
+      required_apps:
+        - 'api'
+        - 'analyticsapi'
+    - name: "api"
+      uri: "http://main_api:5000"
+      cors:
+        allowed_origins:
+          - 'https://frontend.teleport-16-ent.asteroid.earth'
+          - 'http://frontend'
+        allowed_methods:
+          - 'GET'
+          - 'POST'
+          - 'PUT'
+          - 'DELETE'
+          - 'OPTIONS'
+        allowed_headers:
+          - 'Content-Type'
+          - 'Authorization'
+          - 'X-Custom-Header'
+        allow_credentials: true
+    - name: "analyticsapi"
+      uri: "http://analytics_api:5001"
+      cors:
+        allowed_origins:
+          - 'https://frontend.teleport-16-ent.asteroid.earth'
+        allowed_methods:
+          - 'GET'
+          - 'POST'
+          - 'PUT'
+          - 'DELETE'
+          - 'OPTIONS'
+        allowed_headers:
+          - 'Content-Type'
+          - 'Authorization'
+        allow_credentials: true
