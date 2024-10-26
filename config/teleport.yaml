@@ -22,18 +22,18 @@ app_service:
     - name: "frontend"
       uri: "http://frontend:3000"
       labels:
-        type: UI
-        service: bff-demo
-        demo: bff
+        type: "UI"
+        service: "bff-demo"
+        demo: "bff"
       required_apps:
         - 'api'
         - 'analyticsapi'
     - name: "api"
       uri: "tcp://main_api:5000"
-     labels:
-        type: api
-        service: analytics
-        demo: bff
+      labels:
+        type: "api"
+        service: "analytics"
+        demo: "bff"
       cors:
         allowed_origins:
           - 'https://frontend.teleport-16-ent.asteroid.earth'
@@ -52,9 +52,9 @@ app_service:
     - name: "analyticsapi"
       uri: "tcp://analytics_api:5001"
       labels:
-        type: analytics-api
-        service: analytics
-        demo: bff
+        type: "analytics-api"
+        service: "analytics"
+        demo: "bff"
       cors:
         allowed_origins:
           - 'https://frontend.teleport-16-ent.asteroid.earth'
