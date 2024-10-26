@@ -5,8 +5,6 @@ services:
       dockerfile: docker/frontend.Dockerfile
     environment:
       - NODE_ENV=production
-      - REACT_APP_API_URL=http://localhost:8080
-      - REACT_APP_ANALYTICS_API_URL=http://localhost:8081
     ports:
       - "3000:3000"
     depends_on:
@@ -31,6 +29,11 @@ services:
       dockerfile: docker/analytics.Dockerfile
     ports:
       - "8081:5001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/analytics/data"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   db:
     image: postgres:13

@@ -2,9 +2,9 @@ version: v3
 teleport:
   nodename: bff-demo
   join_params:
-    token_name: MxL9okdcwpoMNCZWrMqZ
+    token_name: ${TELEPORT_JOIN_TOKEN}
     method: token
-  proxy_server: "teleport-16-ent.asteroid.earth:443"
+  proxy_server: "${TELEPORT_CLUSTER_URL}:443"
   log:
     output: stderr
     severity: DEBUG
@@ -36,7 +36,7 @@ app_service:
         demo: bff
       cors:
         allowed_origins:
-          - 'https://frontend.teleport-16-ent.asteroid.earth'
+          - 'https://frontend.${TELEPORT_CLUSTER_URL}'
           - 'http://frontend'
         allowed_methods:
           - 'GET'
@@ -57,7 +57,7 @@ app_service:
         demo: bff
       cors:
         allowed_origins:
-          - 'https://frontend.teleport-16-ent.asteroid.earth'
+          - 'https://frontend.${TELEPORT_CLUSTER_URL}'
         allowed_methods:
           - 'GET'
           - 'POST'

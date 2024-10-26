@@ -1,5 +1,5 @@
 # docker/frontend.Dockerfile
-FROM node:latest AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -23,6 +23,7 @@ WORKDIR /app
 
 # Copy built assets from the builder stage
 COPY --from=builder /app/build ./build
+
 
 # Install serve to run the application
 RUN npm install -g serve

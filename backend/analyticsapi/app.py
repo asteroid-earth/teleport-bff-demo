@@ -3,12 +3,11 @@ from flask_cors import CORS
 import random
 
 app = Flask(__name__)
-CORS(app)
-
-logging.getLogger('flask_cors').level = logging.DEBUG
+CORS(app, supports_credentials=True)
 
 @app.route('/analytics/data')
 def get_analytics_data():
+    app.logger.warning("HELLO FROM ANALYTICS API")
     return jsonify({
         "daily_active_users": random.randint(1000, 5000),
         "weekly_active_users": random.randint(5000, 20000),

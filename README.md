@@ -23,10 +23,11 @@ Teleport is used to manage access to all services, demonstrating the BFF support
 
 1. Ensure you have Docker and Docker Compose installed.
 2. Clone this repository.
-3. Run `docker compose up --build` in the project root.
-4. Access the Teleport web UI at `https://localhost:3080`.
-5. Configure Teleport users and roles as needed.
-6. Use Teleport to access the frontend application.
+3.  Set your Teleport configuration run `make configure`
+4. Start. Run `make start`
+5. Access the Teleport web UI at `https://localhost:3080`.
+6. Configure Teleport users and roles as needed.
+7. Use Teleport to access the frontend application.
 
 ## Project Structure
 
