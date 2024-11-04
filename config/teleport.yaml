@@ -2,7 +2,7 @@ version: v3
 teleport:
   nodename: bff-demo
   join_params:
-    token_name: MxL9okdcwpoMNCZWrMqZ
+    token_name: "bff-demo"
     method: token
   proxy_server: "teleport-16-ent.asteroid.earth:443"
   log:

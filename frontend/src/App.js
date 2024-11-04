@@ -5,8 +5,8 @@ import { Shield, Cookie, Zap, Globe } from 'lucide-react';
 
 // Add environment variable validation
 const ENV = {
-  MAIN_API_URL: "https://api.teleport-16-ent.asteroid.earth/api/data",
-  ANALYTICS_API_URL: "https://analyticsapi.teleport-16-ent.asteroid.earth/analytics/data"
+  MAIN_API_URL: "https://api.teleport-17-ent.asteroid.earth/api/data",
+  ANALYTICS_API_URL: "https://analyticsapi.teleport-17-ent.asteroid.earth/analytics/data"
 };
 
 // Validate required environment variables
